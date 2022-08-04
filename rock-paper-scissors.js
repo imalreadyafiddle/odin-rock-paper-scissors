@@ -48,11 +48,6 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-playRound("rock", "paper");
-playRound("scissors", "paper");
-playRound("rock", "rock");
-playRound("spock", "paper");
-
 function game () {
     let roundCount = 0;
     let playerScore = 0;
@@ -73,3 +68,5 @@ function game () {
         console.log("You lose, try again!");
     }
 }
+
+// game();

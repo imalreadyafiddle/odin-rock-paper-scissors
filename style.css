@@ -1,0 +1,133 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: darkgoldenrod;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 0px;
+}
+
+h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: -15px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 25%;
+    font-size: 50px;
+    padding-left: 23px;
+    padding-right: 23px;
+    transition-duration: 100ms;
+    box-shadow: 0px 0px 2px 2px darkgoldenrod;
+    background-color: black;
+}
+
+.buttons {
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button:hover {
+    box-shadow: 0px 0px 5px 5px darkgoldenrod;
+    transition-duration: 300ms;
+}
+
+.button:active {
+    box-shadow: 0px 0px 10px 10px darkgoldenrod;
+}
+
+.inputs {
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#round-count {
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    margin-right: 30px;
+}
+
+#scoreboard {
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 50px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    animation-name: scoreborder;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    box-shadow: 0px 0px 20px 20px darkgoldenrod;
+}
+
+#scores {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+#player-score{
+    margin-left: 25px;
+}
+
+#computer-score {
+    margin-right: 25px;
+}
+
+@keyframes scoreborder {
+    0% {
+        box-shadow: 0px 0px 10px 10px darkgoldenrod;
+    }
+    50% {
+        box-shadow: 0px 0px 15px 15px darkgoldenrod;
+    }
+    100% {
+        box-shadow: 0px 0px 20px 20px darkgoldenrod;
+    } 
+}
