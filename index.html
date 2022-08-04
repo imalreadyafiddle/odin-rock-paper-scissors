@@ -6,7 +6,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ROCK, PAPER, SCISSORS | MAN VS MACHINE</title>
-        <script src="rock-paper-scissors.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -19,20 +18,20 @@
 
         <div class="inputs" id="inputs">
             <div class="buttons" id="buttons">
-                <button class="button" id="rock">🪨</button>
-                <button class="button" id="paper">📄</button>
-                <button class="button" id="scissors">✂️</button>
+                <button class="game-button" id="rock">🪨</button>
+                <button class="game-button" id="paper">📄</button>
+                <button class="game-button" id="scissors">✂️</button>
             </div>
         </div>
 
         <div class="scoreboard" id="scoreboard">
-            <div class="round-count" id="round-count">ROUND: X OF 5</div>
                 <div class="scores" id="scores">
                     <div class="score" id="player-score">MAN<br><span>0</span></div>
+                    <div class="result" id="result">DEFAULT REALLY REALLY LONG VALUE</div>
                     <div class="score" id="computer-score">MACHINE<br><span>0</span></div>
                 </div>
         </div>
-
+        <script src="rock-paper-scissors.js"></script>
     </body>
 
 </html>

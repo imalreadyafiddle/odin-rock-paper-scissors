@@ -1,7 +1,6 @@
+// Prays to RNGeezus to determine the computer's choice
 function getComputerChoice() {
     let choiceNumber = Math.random()*100;
-    let computerChoice = "";
-    console.log(choiceNumber);
     if (choiceNumber <= 33) {
         computerChoice = "rock"
     } else if (choiceNumber >= 34 && choiceNumber <=66) {
@@ -9,64 +8,62 @@ function getComputerChoice() {
     } else {
         computerChoice = "scissors"
     }
-    console.log(computerChoice);
     return computerChoice;
 }
 
-function getPlayerChoice () {
-    let choice = prompt("Rock, Paper, or Scissors? First to Five Wins!");
-    return choice.toLowerCase();
-}
-
-function playRound (playerSelection, computerSelection) {
-    playerSelection = getPlayerChoice();
-    if (playerSelection == "rock" && computerSelection == "paper") {
-        console.log("You lose, paper beats rock.")
-        return false;
-    } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        console.log("You win, rock beats scissors.")
-        return true;
-    } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        console.log("You lose, scissors beats paper.");
-        return false;
-    } else if (playerSelection == "paper" && computerSelection == "rock") {
-        console.log("You win, paper beats rock.");
-        return true;
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        console.log("You lose, rock beats scissors.");
-        return false;
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        console.log("You win, scissors beats paper.");
-        return true;
-    } else if (playerSelection == computerSelection) {
-        console.log("Tie, try again!")
-        // playRound();
+// accepts player choice and computer choice, evaluates & returns result
+function playRound (playerChoice, computerChoice) {
+    // determine the result of the round
+    if (playerChoice == computerChoice) {
+        result.textContent = "TIE, BOTH CHOSE " + playerChoice.toUpperCase() + "!"
+    } else if (
+        (playerChoice == "paper" && computerChoice == "rock") ||
+        (playerChoice == "rock" && computerChoice == "scissors") ||
+        (playerChoice == "scissors" && computerChoice == "paper")
+    ) {
+        result.textContent = playerChoice.toUpperCase() + " BEATS " + computerChoice.toUpperCase() + "!"
+        playerScore++;
+        playerScoreDisplay.textContent = playerScore;
+        checkScore();
     } else {
-        console.log("You entered an invalid choice, please try again");
-        // playRound();
-        // Maybe kick this back to getPlayerChoice? Why run another function if the input is invalid?
+        result.textContent = playerChoice.toUpperCase() + " LOSES TO " + computerChoice.toUpperCase() + "!"
+        computerScore++;
+        computerScoreDisplay.textContent = computerScore;
+        checkScore();
     }
 }
 
-function game () {
-    let roundCount = 0;
-    let playerScore = 0;
-    let computerScore = 0;
-    while (roundCount < 5) {
-        if (playRound(getPlayerChoice, getComputerChoice) = true) {
-            roundCount++;
-            playerScore++;
-        } else if (playRound(getPlayerChoice, getComputerChoice) = false) {
-            roundCount++;
-            computerScore++;
-        }
+function checkScore() {
+    if (computerScore == 5 || playerScore == 5) {
+        endGame();
     }
+}
 
-    if (playerScore >= 3) {
-        console.log("Congratulations, you win!");
+function endGame() {
+    if (playerScore == 5) {
+        result.textContent = "HUMANITY HAS BESTED THE MACHINES"
     } else {
-        console.log("You lose, try again!");
+        result.textContent = "HUMANITY IS DOOMED BY THE MACHINES"
     }
+    document.getElementById('rock').disabled = true;
+    document.getElementById('paper').disabled = true;
+    document.getElementById('scissors').disabled = true;
 }
 
-// game();
+let playerScore = 0;
+let computerScore = 0;
+let playerScoreDisplay = document.querySelector('#player-score > span');
+let computerScoreDisplay = document.querySelector('#computer-score > span')
+let result = document.getElementById('result');
+
+// create array from buttons on page
+let buttons = Array.from(document.querySelectorAll('.game-button'));
+
+// create click event listeners for each button in the array
+buttons.forEach(button => button.addEventListener('click', () => {
+    // arrow function to change the value of buttonClicked
+    buttonClicked = button.id;
+    console.log("You clicked " + buttonClicked + "!");
+    playRound(buttonClicked, getComputerChoice());
+}));
+
