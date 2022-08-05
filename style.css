@@ -13,6 +13,7 @@ header {
     justify-content: space-evenly;
 }
 
+
 h1 {
     display: flex;
     flex-direction: column;
@@ -84,6 +85,21 @@ h3 {
     font-size: 20px;
 }
 
+.robot-fight {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    max-width: 50%;
+    box-shadow: 0px 0px 20px 20px darkgoldenrod;
+    border-radius: 10%;
+    animation-name: scoreborder;
+    animation-duration: 500ms;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
 #round-count {
     justify-content: space-evenly;
     align-items: center;
@@ -92,6 +108,7 @@ h3 {
     font-weight: bold;
     margin-bottom: 10px;
     padding-top: 10px;
+    
 }
 
 #scoreboard {
@@ -107,6 +124,7 @@ h3 {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     box-shadow: 0px 0px 20px 20px darkgoldenrod;
+    margin-top: 20%;
 }
 
 #scores {
