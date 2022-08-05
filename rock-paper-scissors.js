@@ -41,9 +41,9 @@ function checkScore() {
 
 function endGame() {
     if (playerScore == 5) {
-        result.textContent = "HUMANITY HAS BESTED THE MACHINES"
+        result.textContent = "A WINRAR IS YOU"
     } else {
-        result.textContent = "HUMANITY IS DOOMED BY THE MACHINES"
+        result.textContent = "HUMANITY IS DOOMED"
     }
     document.getElementById('rock').disabled = true;
     document.getElementById('paper').disabled = true;
@@ -52,6 +52,8 @@ function endGame() {
 
 let playerScore = 0;
 let computerScore = 0;
+let buttonClicked = '';
+let audio = new Audio(buttonClicked);
 let playerScoreDisplay = document.querySelector('#player-score > span');
 let computerScoreDisplay = document.querySelector('#computer-score > span')
 let result = document.getElementById('result');
@@ -64,6 +66,9 @@ buttons.forEach(button => button.addEventListener('click', () => {
     // arrow function to change the value of buttonClicked
     buttonClicked = button.id;
     console.log("You clicked " + buttonClicked + "!");
+    audio.pause();
+    audio = new Audio(`sounds/${buttonClicked}.mp3`);
+    audio.play();
     playRound(buttonClicked, getComputerChoice());
 }));
 
