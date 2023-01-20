@@ -15,18 +15,18 @@ function getComputerChoice() {
 function playRound (playerChoice, computerChoice) {
     // determine the result of the round
     if (playerChoice == computerChoice) {
-        result.textContent = "TIE, BOTH CHOSE " + playerChoice.toUpperCase() + "!"
+        result.textContent = "TIE, BOTH CHOSE " + playerChoice.toUpperCase() + "!";
     } else if (
         (playerChoice == "paper" && computerChoice == "rock") ||
         (playerChoice == "rock" && computerChoice == "scissors") ||
         (playerChoice == "scissors" && computerChoice == "paper")
     ) {
-        result.textContent = playerChoice.toUpperCase() + " BEATS " + computerChoice.toUpperCase() + "!"
+        result.textContent = playerChoice.toUpperCase() + " BEATS " + computerChoice.toUpperCase() + "!";
         playerScore++;
         playerScoreDisplay.textContent = playerScore;
         checkScore();
     } else {
-        result.textContent = playerChoice.toUpperCase() + " LOSES TO " + computerChoice.toUpperCase() + "!"
+        result.textContent = playerChoice.toUpperCase() + " LOSES TO " + computerChoice.toUpperCase() + "!";
         computerScore++;
         computerScoreDisplay.textContent = computerScore;
         checkScore();
@@ -36,14 +36,14 @@ function playRound (playerChoice, computerChoice) {
 function checkScore() {
     if (computerScore == 5 || playerScore == 5) {
         endGame();
-    }
+    } else return;
 }
 
 function endGame() {
     if (playerScore == 5) {
-        result.textContent = "A WINRAR IS YOU"
+        result.textContent = "A WINRAR IS YOU";
     } else {
-        result.textContent = "HUMANITY IS DOOMED"
+        result.textContent = "HUMANITY IS DOOMED";
     }
     document.getElementById('rock').disabled = true;
     document.getElementById('paper').disabled = true;
@@ -55,7 +55,7 @@ let computerScore = 0;
 let buttonClicked = '';
 let audio = new Audio(buttonClicked);
 let playerScoreDisplay = document.querySelector('#player-score > span');
-let computerScoreDisplay = document.querySelector('#computer-score > span')
+let computerScoreDisplay = document.querySelector('#computer-score > span');
 let result = document.getElementById('result');
 
 // create array from buttons on page
@@ -71,4 +71,3 @@ buttons.forEach(button => button.addEventListener('click', () => {
     audio.play();
     playRound(buttonClicked, getComputerChoice());
 }));
-

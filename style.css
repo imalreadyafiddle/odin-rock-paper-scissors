@@ -162,7 +162,8 @@ h3 {
     }
     #result {
         word-wrap: break-word;
-        display: inline-block
+        display: inline-block;
+        font-size: 15px;
     }
   }
 
